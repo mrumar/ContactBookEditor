@@ -16,7 +16,8 @@ ContactBookEditor = function() {
             teamInput: $('.new-person-team'),
             phoneInput: $('.new-person-phone'),
             emailInput: $('.new-person-email')
-        };
+        },
+        message = $('#message');
 
     this.init = function() {
         self.loadJson();
@@ -78,15 +79,15 @@ ContactBookEditor = function() {
         tpl += '<span class="team view">' + personObj.team + '</span>';
         tpl += '<span class="phone view">' + personObj.phone + '</span>';
         tpl += '<span class="email view">' + personObj.email + '</span>';
-        tpl += '<span class="view"><button class="edit-btn">edit</button></span>';
-        tpl += '<span class="view"><button class="delete-btn">delete</button></span>';
+        tpl += '<span class="view btn"><button class="edit-btn">edit</button></span>';
+        tpl += '<span class="view btn"><button class="delete-btn">delete</button></span>';
         
         tpl += '<span class="firstname edit"><input type="text" value="' + personObj.firstname + '" /></span>';
         tpl += '<span class="lastname edit"><input type="text" value="' + personObj.lastname + '" /></span>';
         tpl += '<span class="team edit"><input type="text" value="' + personObj.team + '" /></span>';
-        tpl += '<span class="phone edit"><input type="text" value="' + personObj.phone + '" /></span>';
-        tpl += '<span class="email edit"><input type="text" value="' + personObj.email + '" /></span>';
-        tpl += '<span class="edit"><button class="save-btn">save</button></span>';
+        tpl += '<span class="phone edit"><input type="tel" value="' + personObj.phone + '" /></span>';
+        tpl += '<span class="email edit"><input type="email" value="' + personObj.email + '" /></span>';
+        tpl += '<span class="edit btn"><button class="save-btn">save</button></span>';
         
         tpl += '</li>';
         return tpl;
@@ -99,7 +100,11 @@ ContactBookEditor = function() {
         self.showMsg('New person added.');
     }
     this.showMsg = function(msg) {
-        console.log(msg);
+        message.html('<p>'+msg+'</p>');
+        if (message.css('display') == 'none') {
+            message.css('display', 'block');
+        }
+        message.toggleClass('show-hide');
     }
     this.editPerson = function(e) {
         var personRecord = $(e.target).closest('li');
