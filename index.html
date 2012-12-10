@@ -11,33 +11,41 @@
     </head>
     <body>
         <article>
-            <header>
-                <h1>Schibsted ContactBook Editor</h1>
-            </header>    
-            <section>
-                <header>
-                    <h1>Add new employee</h1>
-                </header>
-                <div class="add-person-form">
-                    <input type="text" name="firstname" placeholder="first name" class="new-person-firstname" />
-                    <input type="text" name="lastname" placeholder="last name" class="new-person-lastname" />
-                    <input type="text" name="team" placeholder="team" class="new-person-team" />
-                    <input type="text" name="phone" placeholder="phone number" class="new-person-phone" />
-                    <input type="text" name="email" placeholder="email address" class="new-person-email" />
-                    <button class="add" id="AddNewEmployee">Add</button>
+            <header class="main-header">
+                <div class="page">
+                    <img class="logo" src="img/logo.png" alt="Schibsted logo" />
+                    <h1>Schibsted ContactBook Editor</h1>
                 </div>
-            </section>
-            <section>
-                <header>
-                    <h1>Employee list</h1>
-                </header>
-                <div class="employees">
-                    
+            </header>
+            <div class="main">
+                <div class="page">
+                    <section class="add-new">
+                        <header>
+                            <h1>Add new employee</h1>
+                        </header>
+                        <div class="add-person-form">
+                            <input type="text" name="firstname" placeholder="first name" class="new-person-firstname" />
+                            <input type="text" name="lastname" placeholder="last name" class="new-person-lastname" />
+                            <input type="text" name="team" placeholder="team" class="new-person-team" />
+                            <input type="text" name="phone" placeholder="phone number" class="new-person-phone" />
+                            <input type="text" name="email" placeholder="email address" class="new-person-email" />
+                            <button class="add" id="AddNewEmployee">
+                                Add
+                            </button>
+                        </div>
+                    </section>
+                    <section class="employee-list">
+                        <header>
+                            <h1>Employee list</h1>
+                        </header>
+                        <div class="employees">
+
+                        </div>
+                    </section>
                 </div>
-            </section>
+            </div>
         </article>
-        
-            
+
         <script src="js/vendor/jquery-1.8.2.min.js" type="text/javascript"></script>
         <script src="js/main.js" type="text/javascript"></script>
     </body>
