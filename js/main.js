@@ -48,7 +48,7 @@ ContactBookEditor = function() {
          xhr.send();
     }
     this.drawPeopleList = function() {
-        var peopleList = $('<ul />'), i = 0, len = people.length, person = '';
+        var peopleList = $('<table />'), i = 0, len = people.length, person = '';
         
         while (i < len) {
             person = $(self.personHtmlTmpl(i, people[i]));
@@ -73,23 +73,16 @@ ContactBookEditor = function() {
     }
     this.personHtmlTmpl = function(index, personObj) {
         var tpl = '';
-        tpl += '<li data-index='+index+'>';
-        tpl += '<span class="firstname view">' + personObj.firstname + '</span>';
-        tpl += '<span class="lastname view">' + personObj.lastname + '</span>';
-        tpl += '<span class="team view">' + personObj.team + '</span>';
-        tpl += '<span class="phone view">' + personObj.phone + '</span>';
-        tpl += '<span class="email view">' + personObj.email + '</span>';
-        tpl += '<span class="view btn"><button class="edit-btn">edit</button></span>';
-        tpl += '<span class="view btn"><button class="delete-btn">delete</button></span>';
+        tpl += '<tr data-index='+index+'>';
         
-        tpl += '<span class="firstname edit"><input type="text" value="' + personObj.firstname + '" /></span>';
-        tpl += '<span class="lastname edit"><input type="text" value="' + personObj.lastname + '" /></span>';
-        tpl += '<span class="team edit"><input type="text" value="' + personObj.team + '" /></span>';
-        tpl += '<span class="phone edit"><input type="tel" value="' + personObj.phone + '" /></span>';
-        tpl += '<span class="email edit"><input type="email" value="' + personObj.email + '" /></span>';
-        tpl += '<span class="edit btn"><button class="save-btn">save</button></span>';
-        
-        tpl += '</li>';
+        tpl += '<td class="firstname"><span class="view">' + personObj.firstname + '</span><input class="edit" type="text" value="' + personObj.firstname + '" /></td>';
+        tpl += '<td class="lastname"><span class="view">' + personObj.lastname + '</span><input class="edit" type="text" value="' + personObj.lastname + '" /></td>';
+        tpl += '<td class="team"><span class="view">' + personObj.team + '</span><input class="edit" type="text" value="' + personObj.team + '" /></td>';
+        tpl += '<td class="phone"><span class="view">' + personObj.phone + '</span><input class="edit" type="tel" value="' + personObj.phone + '" /></td>';
+        tpl += '<td class="email"><span class="view">' + personObj.email + '</span><input class="edit" type="email" value="' + personObj.email + '" /></td>';
+        tpl += '<td class="btn"><button class="edit-btn view">edit</button><button class="delete-btn view">delete</button><button class="save-btn edit">save</button></td>';
+
+        tpl += '</tr>';
         return tpl;
     }
     this.addPerson = function() {
@@ -107,21 +100,21 @@ ContactBookEditor = function() {
         message.toggleClass('show-hide');
     }
     this.editPerson = function(e) {
-        var personRecord = $(e.target).closest('li');
+        var personRecord = $(e.target).closest('tr');
         
         personRecord.find('.view').hide();
         personRecord.find('.edit').show();
         peopleListWrapper.on('click', '.save-btn', self.savePerson);
     } 
     this.deletePerson = function(e) {
-        var personRecord = $(e.target).closest('li'),
+        var personRecord = $(e.target).closest('tr'),
             index = parseInt(personRecord.attr('data-index'));
         people.remove(index);
         self.redrawPeopleList();
         self.showMsg('Person removed.');
     } 
     this.savePerson = function(e) {
-        var personRecord = $(e.target).closest('li'),
+        var personRecord = $(e.target).closest('tr'),
             index = parseInt(personRecord.attr('data-index')),
             person;
             

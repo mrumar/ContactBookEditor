@@ -175,6 +175,57 @@ button:active {
     width: 100%;
     clear:both;
 }
+
+/* employee list */
+.employees table {
+    table-layout: fixed;
+    width: 100%;
+    font-size: 0.813rem;
+    border-collapse:collapse;
+}
+.employees tr {
+    background: #f2f2f2;
+    background: -moz-linear-gradient(top,  #f2f2f2 0%, #ffffff 71%, #ffffff 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f2f2), color-stop(71%,#ffffff), color-stop(100%,#ffffff));
+    background: -webkit-linear-gradient(top,  #f2f2f2 0%,#ffffff 71%,#ffffff 100%);
+    background: -o-linear-gradient(top,  #f2f2f2 0%,#ffffff 71%,#ffffff 100%);
+    background: -ms-linear-gradient(top,  #f2f2f2 0%,#ffffff 71%,#ffffff 100%);
+    background: linear-gradient(to bottom,  #f2f2f2 0%,#ffffff 71%,#ffffff 100%);
+    
+}
+.employees td {
+    line-height:1.250em;
+    padding: 1.25em  1.063rem 1.25em 0.438rem;
+    width: 7.875rem; 
+    vertical-align:middle;
+}
+.employees .email {
+    width: 12.625rem;
+}
+.employees .btn {
+    width: auto;
+    padding: 0;
+}
+.employees .edit {
+    display:none;
+}
+.employees input.edit {
+    position:relative;
+    left: -0.5rem;
+}
+.edit-btn {
+    margin-right: 0.625rem;
+}
+
+.add-person-form input {
+    margin-right: 0.625rem;
+    float: left;
+}
+.add-person-form button {
+    float:left;
+}
+
+/* info message */
 #message {
     display: none;
     position:fixed;
@@ -195,58 +246,75 @@ button:active {
     line-height:2.6em;
     overflow:hidden;
     
-    animation-duration: 3s;
-    animation-name: fadeInOut;
+    -webkit-animation: fadeInOut 3s;
+     -moz-animation: fadeInOut 3s;
+       -o-animation: fadeInOut 3s;
+          animation: fadeInOut 3s;
     opacity: 0;
 }
 #message.show-hide p {
     display: inline-block;
 }
 
-/* employee list */
-.employees ul {
-    list-style-type: none;
+@-webkit-keyframes fadeInOut {
+  1% {
+    opacity: 0;
+    height: 2.6em;
+  }
+  25% {
+      opacity: 1;
+  }
+  74% {
+      opacity: 1;
+  }
+  99% {
+      opacity: 0;
+      height: 2.6em;
+  }
+  100% {
+      opacity: 0;
+      height: 1px;
+  }
 }
-.employees li {
-    background: #f2f2f2;
-    background: -moz-linear-gradient(top,  #f2f2f2 0%, #ffffff 71%, #ffffff 100%);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2f2f2), color-stop(71%,#ffffff), color-stop(100%,#ffffff));
-    background: -webkit-linear-gradient(top,  #f2f2f2 0%,#ffffff 71%,#ffffff 100%);
-    background: -o-linear-gradient(top,  #f2f2f2 0%,#ffffff 71%,#ffffff 100%);
-    background: -ms-linear-gradient(top,  #f2f2f2 0%,#ffffff 71%,#ffffff 100%);
-    background: linear-gradient(to bottom,  #f2f2f2 0%,#ffffff 71%,#ffffff 100%);
-    padding: 1em 0;
-    
+@-moz-keyframes fadeInOut {
+  1% {
+    opacity: 0;
+    height: 2.6em;
+  }
+  25% {
+      opacity: 1;
+  }
+  74% {
+      opacity: 1;
+  }
+  99% {
+      opacity: 0;
+      height: 2.6em;
+  }
+  100% {
+      opacity: 0;
+      height: 1px;
+  }
 }
-.employees ul span {
-    display:inline-block;
-    line-height:1.250em;
-    padding: .25em 0.375rem;
-    width: 8.750rem;
-    -webkit-box-sizing: border-box; 
-    -moz-box-sizing: border-box;   
-    box-sizing: border-box;     
-    margin-right: 0.625rem;
-    vertical-align:middle;
-}
-.employees .email {
-    width: 13.5rem;
-}
-.employees .btn {
-    width: auto;
-    padding: 0;
-}
-.employees .edit {
-    display:none;
-    padding: 0;
-}
-
-.add-person-form input {
-    margin-right: 0.625rem;
-    float: left;
-}
-.add-person-form button {
-    float:left;
+@-o-keyframes fadeInOut {
+  1% {
+    opacity: 0;
+    height: 2.6em;
+  }
+  25% {
+      opacity: 1;
+  }
+  74% {
+      opacity: 1;
+  }
+  99% {
+      opacity: 0;
+      height: 2.6em;
+  }
+  100% {
+      opacity: 0;
+      height: 1px;
+  }
 }
 
 @keyframes fadeInOut {
