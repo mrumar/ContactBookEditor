@@ -48,7 +48,10 @@ ContactBookEditor = function() {
          xhr.send();
     }
     this.drawPeopleList = function() {
-        var peopleList = $('<table />'), i = 0, len = people.length, person = '';
+        var peopleList = $('<table id="EmployeesTable" />'), i = 0, len = people.length, person = '',
+            thead = $('<thead><tr><th class="nocase">Firstname</th><th class="nocase">Lastname</th><th class="nocase">Team</th><th class="nocase">Phone</th><th class="email nocase">Email</th><th class="btn">&nbsp;</th></tr></thead>');
+        
+        peopleList.append(thead);
         
         while (i < len) {
             person = $(self.personHtmlTmpl(i, people[i]));
@@ -58,9 +61,12 @@ ContactBookEditor = function() {
         }
         // add event listeners
         peopleListWrapper.on('click', '.edit-btn', self.editPerson);
-        peopleListWrapper.on('click', '.delete-btn', self.deletePerson);     
-           
+        peopleListWrapper.on('click', '.delete-btn', self.deletePerson);   
+         
         peopleListWrapper.append(peopleList);
+        
+        // init sorting plugin
+        TableSort.init('EmployeesTable'); 
     }
     this.redrawPeopleList = function(){
         // remove old list

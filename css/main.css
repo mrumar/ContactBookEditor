@@ -38,8 +38,10 @@ h1 {
     text-transform:uppercase;
 }
 section h1 {
+    border-bottom: 1px solid #CCCCCC;
     font-size: 1.3em;
-    margin-bottom: 0.6em;
+    margin-bottom: 1em;
+    padding-bottom: 0.2em;
 }
 
 /* layout */
@@ -198,6 +200,47 @@ button:active {
     padding: 1.25em  1.063rem 1.25em 0.438rem;
     width: 7.875rem; 
     vertical-align:middle;
+}
+.employees th {
+    background-color: #FFFFFF;
+    color: #646464;
+    font-weight: normal;
+    line-height: 1.25em;
+    padding: 0.5em 1.063rem 0.5em 0.438rem;
+    text-align: left;
+    text-transform: uppercase;
+    vertical-align: middle;
+    width: 7.875rem;
+}
+.employees th a {
+    color: #646464;
+    text-decoration: none;
+    -moz-transition: color 1s ease;
+    -webkit-transition: color 1s ease;
+    transition: color 1s ease;
+    position:relative;
+}
+.employees th a:hover {
+    color:#111;
+}
+.employees th a:hover:after {
+    content: "sort";
+    display:block;
+    font-size: 0.7em;
+    margin-left:0.5em;
+    padding:0.2em 0.4em;
+    border-radius:0.4rem;
+    position:absolute;
+    bottom: -0.2em;
+    left:100%;
+    line-height:0.813rem;
+    border:1px solid #ccc;
+    background-color:#FFF;
+    z-index:1000;
+}
+.employees th a + span {
+    position:relative;
+    top:-2px;
 }
 .employees .email {
     width: 12.625rem;
